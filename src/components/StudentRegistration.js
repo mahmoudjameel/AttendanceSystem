@@ -131,28 +131,27 @@ const StudentRegistration = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-slate-50 to-indigo-50 dark:from-slate-900 dark:to-indigo-900">
-      <div className="max-w-3xl w-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 shadow-lg rounded-lg overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center p-6 reg-bg dark:bg-gray-900">
+      <div className="max-w-3xl w-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 shadow-md ring-1 ring-gray-100 dark:ring-gray-700 rounded-xl overflow-hidden">
         {/* Card header: organization name and logo */}
         <div className="border-b dark:border-gray-700">
-          <div className="p-4 bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-indigo-800 dark:to-indigo-900 flex items-center gap-4">
-            <div className="w-12 h-12 rounded-md overflow-hidden flex items-center justify-center bg-transparent">
-              {/* Put your logo image at public/logo.png so it loads here using an absolute path */}
+          <div className="p-4 flex items-center gap-4 bg-[#2563EB] dark:bg-[#0B2545]">
+            <div className="w-12 h-12 rounded-md overflow-hidden flex items-center justify-center bg-[#071123] dark:bg-[#071123]">
               <img src="/logo.png" alt="logo" className="w-10 h-10 object-contain" />
             </div>
             <div className="flex flex-col">
-              <div className="text-sm text-gray-600 dark:text-gray-300 font-medium">{t.instituteName}</div>
-              <div className="text-lg font-semibold">{t.title}</div>
+              <div className="text-sm text-[#071123] dark:text-white font-semibold">{t.instituteName}</div>
+              <div className="text-lg font-bold text-[#071123] dark:text-white">{t.title}</div>
             </div>
           </div>
 
           <div className="flex items-center justify-end p-3 space-x-3 rtl:space-x-reverse">
             {/* Language segmented control */}
-            <div className="inline-flex items-center bg-gray-100 dark:bg-gray-700 rounded-md p-1">
+            <div className="inline-flex items-center bg-white dark:bg-gray-700/20 rounded-md p-1 border border-gray-100 dark:border-gray-600">
               <button
                 type="button"
                 onClick={() => setLang('ar')}
-                className={`px-3 py-1 rounded-md text-sm transition-colors ${lang === 'ar' ? 'bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-medium' : 'text-gray-600 dark:text-gray-300'}`}
+                className={`px-3 py-1 rounded-md text-sm transition-colors ${lang === 'ar' ? 'bg-[#071123] text-white font-medium' : 'text-gray-600 dark:text-gray-300'}`}
                 aria-pressed={lang === 'ar'}
                 aria-label="العربية"
               >
@@ -161,7 +160,7 @@ const StudentRegistration = () => {
               <button
                 type="button"
                 onClick={() => setLang('en')}
-                className={`px-3 py-1 rounded-md text-sm transition-colors ${lang === 'en' ? 'bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-medium' : 'text-gray-600 dark:text-gray-300'}`}
+                className={`px-3 py-1 rounded-md text-sm transition-colors ${lang === 'en' ? 'bg-[#071123] text-white font-medium' : 'text-gray-600 dark:text-gray-300'}`}
                 aria-pressed={lang === 'en'}
                 aria-label="English"
               >
@@ -174,21 +173,16 @@ const StudentRegistration = () => {
               <button
                 type="button"
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="flex items-center bg-gray-200 dark:bg-gray-600 rounded-full p-1 focus:outline-none"
+                className="flex items-center bg-transparent rounded-full p-1 focus:outline-none border border-gray-200 dark:border-gray-600"
                 aria-label={theme === 'dark' ? (lang === 'ar' ? 'تبديل إلى الوضع الفاتح' : 'Switch to light mode') : (lang === 'ar' ? 'تبديل إلى الوضع الداكن' : 'Switch to dark mode')}
               >
-                <span className={`w-9 h-5 relative rounded-full transition-colors ${theme === 'dark' ? 'bg-gray-700' : 'bg-white'}`}>
-                  <span className={`absolute top-0.5 left-0.5 w-4 h-4 bg-white dark:bg-gray-900 rounded-full shadow transform transition-transform ${theme === 'dark' ? 'translate-x-4' : ''}`}>
-                    {/* Icon inside the knob */}
-                    <svg className={`w-3 h-3 m-[3px] ${theme === 'dark' ? 'text-yellow-400' : 'text-yellow-500'}`} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      {theme === 'dark' ? (
-                        <path d="M21.64 13a1 1 0 00-1.06-1.38 8 8 0 11-9.9-9.9A1 1 0 009 3.36 10 10 0 1021.64 13z" />
-                      ) : (
-                        <path d="M6.76 4.84l-1.8-1.79L4 4l1.79 1.79 0.97-0.95zM1 13h3v-2H1v2zm10 9h2v-3h-2v3zM17.66 6.34l1.8-1.79L20 4l-1.79 1.79-0.55-0.45zM20 11v2h3v-2h-3zM4 20l1.79-1.79 0.97 0.95L4.84 20H4zM12 6a6 6 0 100 12A6 6 0 0012 6z" />
-                      )}
-                    </svg>
-                  </span>
-                </span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-gray-600 dark:text-gray-200">
+                  {theme === 'dark' ? (
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="currentColor" />
+                  ) : (
+                    <path d="M12 3v2M12 19v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                  )}
+                </svg>
               </button>
             </div>
           </div>
@@ -203,7 +197,7 @@ const StudentRegistration = () => {
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 placeholder={lang === 'ar' ? 'مثال: أحمد محمد علي' : 'e.g. John Michael Doe'}
-                className="w-full rounded-md border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-2 text-sm"
+                className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-transparent p-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
               />
             </div>
 
@@ -213,7 +207,7 @@ const StudentRegistration = () => {
                 value={contact}
                 onChange={(e) => setContact(e.target.value)}
                 placeholder={t.contactPlaceholder}
-                className="w-full rounded-md border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-2 text-sm"
+                className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-transparent p-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
               />
             </div>
 
@@ -223,65 +217,112 @@ const StudentRegistration = () => {
                 value={major}
                 onChange={(e) => setMajor(e.target.value)}
                 placeholder={lang === 'ar' ? 'مثال: علوم الحاسب - هندسة برمجيات' : 'e.g. Computer Science - Software Engineering'}
-                className="w-full rounded-md border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-2 text-sm"
+                className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-transparent p-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
               />
             </div>
 
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
               <div>
                 <label className="block text-sm font-medium mb-1">{t.statusLabel}</label>
-                <div className="flex gap-4 items-center">
-                  <label className="inline-flex items-center gap-2">
-                    <input type="radio" name="status" value={lang === 'ar' ? 'طالب' : 'Student'} checked={status === (lang === 'ar' ? 'طالب' : 'Student')} onChange={() => setStatus(lang === 'ar' ? 'طالب' : 'Student')} />
-                    <span className="text-sm">{lang === 'ar' ? t.student : t.student}</span>
-                  </label>
-                  <label className="inline-flex items-center gap-2">
-                    <input type="radio" name="status" value={lang === 'ar' ? 'فريلانسر' : 'Freelancer'} checked={status === (lang === 'ar' ? 'فريلانسر' : 'Freelancer')} onChange={() => setStatus(lang === 'ar' ? 'فريلانسر' : 'Freelancer')} />
-                    <span className="text-sm">{lang === 'ar' ? t.freelancer : t.freelancer}</span>
-                  </label>
-                </div>
+                  <div className="flex gap-4 items-center">
+                    <div role="tablist" aria-label={t.statusLabel} className="inline-flex rounded-md bg-transparent border border-gray-200 dark:border-gray-700 p-1">
+                      <button
+                        type="button"
+                        role="tab"
+                        aria-selected={status === (lang === 'ar' ? 'طالب' : 'Student')}
+                        onClick={() => setStatus(lang === 'ar' ? 'طالب' : 'Student')}
+                        className={`px-3 py-1 text-sm rounded-md transition-colors ${status === (lang === 'ar' ? 'طالب' : 'Student') ? 'bg-[#071123] text-white font-medium' : 'text-gray-700 dark:text-gray-300'}`}
+                      >
+                        {t.student}
+                      </button>
+                      <button
+                        type="button"
+                        role="tab"
+                        aria-selected={status === (lang === 'ar' ? 'فريلانسر' : 'Freelancer')}
+                        onClick={() => setStatus(lang === 'ar' ? 'فريلانسر' : 'Freelancer')}
+                        className={`px-3 py-1 text-sm rounded-md transition-colors ${status === (lang === 'ar' ? 'فريلانسر' : 'Freelancer') ? 'bg-[#071123] text-white font-medium' : 'text-gray-700 dark:text-gray-300'}`}
+                      >
+                        {t.freelancer}
+                      </button>
+                    </div>
+                  </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium mb-1">{t.daysLabel}</label>
                 <div className="flex gap-4 items-center">
-                  <label className="inline-flex items-center gap-2">
-                    <input type="radio" name="days" value="sat_mon_wed" checked={preferredDays === 'sat_mon_wed'} onChange={() => setPreferredDays('sat_mon_wed')} />
-                    <span className="text-sm">{t.daysA}</span>
-                  </label>
-                  <label className="inline-flex items-center gap-2">
-                    <input type="radio" name="days" value="sun_tue_thu" checked={preferredDays === 'sun_tue_thu'} onChange={() => setPreferredDays('sun_tue_thu')} />
-                    <span className="text-sm">{t.daysB}</span>
-                  </label>
+                  <div role="tablist" aria-label={t.daysLabel} className="inline-flex w-full rounded-md bg-transparent border border-gray-200 dark:border-gray-700 p-1">
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={preferredDays === 'sat_mon_wed'}
+                      onClick={() => setPreferredDays('sat_mon_wed')}
+                      className={`w-1/2 px-3 py-2 text-sm text-center rounded-md transition-colors ${preferredDays === 'sat_mon_wed' ? 'bg-[#071123] text-white font-medium' : 'text-gray-700 dark:text-gray-300 bg-transparent'}`}
+                    >
+                      {t.daysA}
+                    </button>
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={preferredDays === 'sun_tue_thu'}
+                      onClick={() => setPreferredDays('sun_tue_thu')}
+                      className={`w-1/2 px-3 py-2 text-sm text-center rounded-md transition-colors ${preferredDays === 'sun_tue_thu' ? 'bg-[#071123] text-white font-medium' : 'text-gray-700 dark:text-gray-300 bg-transparent'}`}
+                    >
+                      {t.daysB}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div>
               <label className="block text-sm font-medium mb-1">{t.timeLabel}</label>
-              <div className="flex gap-4 items-center">
-                <label className="inline-flex items-center gap-2">
-                  <input type="radio" name="time" value="9-1" checked={preferredTime === '9-1'} onChange={() => setPreferredTime('9-1')} />
-                  <span className="text-sm">{t.timeA}</span>
-                </label>
-                <label className="inline-flex items-center gap-2">
-                  <input type="radio" name="time" value="1-5" checked={preferredTime === '1-5'} onChange={() => setPreferredTime('1-5')} />
-                  <span className="text-sm">{t.timeB}</span>
-                </label>
+              {/* Segmented control for time selection for better visual affordance */}
+              <div role="tablist" aria-label={t.timeLabel} className="inline-flex w-full rounded-md bg-transparent border border-gray-200 dark:border-gray-700 p-1">
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={preferredTime === '9-1'}
+                  onClick={() => setPreferredTime('9-1')}
+                  className={`w-1/2 px-3 py-2 text-sm text-center rounded-md transition-colors ${preferredTime === '9-1' ? 'bg-[#071123] text-white font-medium' : 'text-gray-700 dark:text-gray-300 bg-transparent'}`}
+                >
+                  <div className="leading-tight">{t.timeA}</div>
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={preferredTime === '1-5'}
+                  onClick={() => setPreferredTime('1-5')}
+                  className={`w-1/2 px-3 py-2 text-sm text-center rounded-md transition-colors ${preferredTime === '1-5' ? 'bg-[#071123] text-white font-medium' : 'text-gray-700 dark:text-gray-300 bg-transparent'}`}
+                >
+                  <div className="leading-tight">{t.timeB}</div>
+                </button>
               </div>
             </div>
 
             <div>
               <label className="block text-sm font-medium mb-1">{t.photoLabel}</label>
               <div className="flex gap-4 items-center">
-                <label className="inline-flex items-center gap-2">
-                  <input type="radio" name="photo" value="yes" checked={photoConsent === 'yes'} onChange={() => setPhotoConsent('yes')} />
-                  <span className="text-sm">{t.photoYes}</span>
-                </label>
-                <label className="inline-flex items-center gap-2">
-                  <input type="radio" name="photo" value="no" checked={photoConsent === 'no'} onChange={() => setPhotoConsent('no')} />
-                  <span className="text-sm">{t.photoNo}</span>
-                </label>
+                <div role="tablist" aria-label={t.photoLabel} className="inline-flex rounded-md bg-transparent border border-gray-200 dark:border-gray-700 p-1">
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={photoConsent === 'yes'}
+                    onClick={() => setPhotoConsent('yes')}
+                    className={`px-3 py-1 text-sm rounded-md transition-colors ${photoConsent === 'yes' ? 'bg-[#071123] text-white font-medium' : 'text-gray-700 dark:text-gray-300'}`}
+                  >
+                    {t.photoYes}
+                  </button>
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={photoConsent === 'no'}
+                    onClick={() => setPhotoConsent('no')}
+                    className={`px-3 py-1 text-sm rounded-md transition-colors ${photoConsent === 'no' ? 'bg-[#071123] text-white font-medium' : 'text-gray-700 dark:text-gray-300'}`}
+                  >
+                    {t.photoNo}
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -292,7 +333,7 @@ const StudentRegistration = () => {
               <button
                 type="submit"
                 disabled={submitting}
-                className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 disabled:opacity-60"
+                className="inline-flex items-center px-4 py-2 bg-[#2563EB] text-white font-semibold rounded-md hover:opacity-95 disabled:opacity-60"
               >
                 {submitting ? t.sending : t.submit}
               </button>

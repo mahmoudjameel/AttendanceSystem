@@ -15,3 +15,66 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Brand palette variables */
+:root {
+  --brand-accent: #83D0D2;
+  --brand-accent-2: #E1F2F3;
+  --brand-dark: #0A1C1C;
+}
+
+/* Registration page background effects: subtle blurred blobs that move slowly */
+.reg-bg {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--brand-accent-2);
+}
+
+.reg-bg::before,
+.reg-bg::after {
+  content: '';
+  position: absolute;
+  filter: blur(60px) saturate(120%);
+  opacity: 0.7;
+  transform: translate3d(0,0,0);
+  will-change: transform, opacity;
+}
+
+.reg-bg::before {
+  width: 520px;
+  height: 520px;
+  left: -10%;
+  top: -20%;
+  background: radial-gradient(circle at 30% 30%, var(--brand-accent) 0%, rgba(131,208,210,0.0) 60%);
+  animation: float-blob-1 18s ease-in-out infinite;
+}
+
+.reg-bg::after {
+  width: 420px;
+  height: 420px;
+  right: -5%;
+  bottom: -15%;
+  background: radial-gradient(circle at 70% 70%, var(--brand-dark) 0%, rgba(10,28,28,0) 55%);
+  mix-blend-mode: multiply;
+  opacity: 0.6;
+  animation: float-blob-2 22s ease-in-out infinite;
+}
+
+@keyframes float-blob-1 {
+  0% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(18px) translateX(6px) scale(1.03); }
+  100% { transform: translateY(0) translateX(0) scale(1); }
+}
+
+@keyframes float-blob-2 {
+  0% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-14px) translateX(-8px) scale(1.02); }
+  100% { transform: translateY(0) translateX(0) scale(1); }
+}
+
+/* Small helper to add a subtle ring around the logo tile when needed */
+.logo-ring {
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.06) inset, 0 2px 10px rgba(0,0,0,0.15);
+  border-radius: 8px;
+}
+
