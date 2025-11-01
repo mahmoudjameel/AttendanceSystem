@@ -1,5 +1,5 @@
 {
-  "title": "Student Registration (Public)",
+  "title": "Student Registration",
   "fullNameLabel": "1- Full name:",
   "fullNameHelp": "(Please enter your full three-part name)",
   "contactLabel": "2- Contact number (with WhatsApp country code)",
@@ -27,9 +27,9 @@
   "errMajor": "Major / field of study is required",
   "errSubmit": "An error occurred while sending. Please try again later."
   ,
-  "instituteName": "Evaluation Institute",
-  "whatsappNumber": "+966512345678",
-  "phoneNumber": "+966512345678",
+  "instituteName": "Jreas Hub",
+  "whatsappNumber": "+970598706468",
+  "phoneNumber": "+970598706468",
   "whatsappText": "Hello, I'd like to inquire about registration at the institute.",
   "social_facebook": "https://facebook.com/yourpage",
   "social_instagram": "https://instagram.com/yourpage",

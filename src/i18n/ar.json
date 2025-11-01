@@ -1,5 +1,5 @@
 {
-  "title": "تسجيل طلابي (للاستخدام العام)",
+  "title": "تسجيل الطلاب الجدد",
   "fullNameLabel": "1- الاسم الكامل:",
   "fullNameHelp": "(يرجى كتابة اسمك الثلاثي)",
   "contactLabel": "2- رقم للتواصل (مع مقدمة الواتساب)",
@@ -27,9 +27,9 @@
   "errMajor": "التخصص الجامعي / مجال الدراسة مطلوب",
   "errSubmit": "حدث خطأ أثناء إرسال البيانات. حاول مرة أخرى لاحقًا."
   ,
-  "instituteName": "معهد التقييم",
-  "whatsappNumber": "+966512345678",
-  "phoneNumber": "+966512345678",
+  "instituteName": "Jreas Hub",
+  "whatsappNumber": "+970598706468",
+  "phoneNumber": "+970598706468",
   "whatsappText": "مرحبًا، أود الاستفسار عن التسجيل لدى المعهد.",
   "social_facebook": "https://facebook.com/yourpage",
   "social_instagram": "https://instagram.com/yourpage",

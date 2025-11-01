@@ -133,24 +133,21 @@ const StudentRegistration = () => {
   return (
     <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-slate-50 to-indigo-50 dark:from-slate-900 dark:to-indigo-900">
       <div className="max-w-3xl w-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 shadow-lg rounded-lg overflow-hidden">
-        <div className="flex items-center justify-between p-4 border-b dark:border-gray-700">
-          <div className="flex items-center gap-3">
-              <div className="flex items-center gap-3">
-                {/* Inline simple SVG logo */}
-                <div className="w-10 h-10 bg-indigo-600 text-white rounded-md flex items-center justify-center">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 7v6c0 5 5 9 10 9s10-4 10-9V7l-10-5z" fill="currentColor"/>
-                  </svg>
-                </div>
-                <div className="flex flex-col">
-                  <h1 className="text-lg font-semibold">{t.title}</h1>
-                  <div className="text-sm text-gray-500 dark:text-gray-300">{t.instituteName}</div>
-                </div>
-              </div>
-              <span className="text-sm text-gray-500 dark:text-gray-300">{lang === 'ar' ? 'عربي' : 'English'}</span>
+        {/* Card header: organization name and logo */}
+        <div className="border-b dark:border-gray-700">
+          <div className="p-4 bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-indigo-800 dark:to-indigo-900 flex items-center gap-4">
+            <div className="w-12 h-12 bg-indigo-600 text-white rounded-md flex items-center justify-center">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7v6c0 5 5 9 10 9s10-4 10-9V7l-10-5z" fill="currentColor"/>
+              </svg>
+            </div>
+            <div className="flex flex-col">
+              <div className="text-sm text-gray-600 dark:text-gray-300 font-medium">{t.instituteName}</div>
+              <div className="text-lg font-semibold">{t.title}</div>
+            </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-end p-3">
             <label className="flex items-center gap-2 text-sm">
               <select
                 value={lang}
@@ -162,7 +159,7 @@ const StudentRegistration = () => {
               </select>
             </label>
 
-            <label className="flex items-center gap-2 text-sm">
+            <label className="flex items-center gap-2 text-sm ml-3">
               <span className="text-xs text-gray-500 dark:text-gray-300">{theme === 'dark' ? (lang === 'ar' ? 'داكن' : 'Dark') : (lang === 'ar' ? 'فاتح' : 'Light')}</span>
               <button
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -283,25 +280,32 @@ const StudentRegistration = () => {
           </form>
 
           <div className="mt-4 text-xs text-gray-500 dark:text-gray-400">{t.note}</div>
+        </div>
 
-          <div className="mt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        {/* Card footer */}
+        <div className="border-t dark:border-gray-700 p-4">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <div className="flex items-center gap-3">
-              {/* Social links */}
-              <a href={t.social_facebook} target="_blank" rel="noreferrer" className="text-sm text-indigo-600 dark:text-indigo-300">Facebook</a>
-              <a href={t.social_instagram} target="_blank" rel="noreferrer" className="text-sm text-pink-600">Instagram</a>
-              <a href={t.social_twitter} target="_blank" rel="noreferrer" className="text-sm text-blue-500">Twitter</a>
-              <a href={t.social_linkedin} target="_blank" rel="noreferrer" className="text-sm text-sky-600">LinkedIn</a>
+              <a href={t.social_facebook} target="_blank" rel="noreferrer" aria-label="Facebook" className="text-indigo-600 dark:text-indigo-300 hover:opacity-80">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 4.99 3.66 9.13 8.44 9.93v-7.03H8.08v-2.9h2.36V9.41c0-2.33 1.39-3.62 3.52-3.62 1.02 0 2.09.18 2.09.18v2.3h-1.18c-1.16 0-1.52.72-1.52 1.46v1.75h2.59l-.41 2.9h-2.18V22C18.34 21.2 22 17.06 22 12.07z"/></svg>
+              </a>
+              <a href={t.social_instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="text-pink-600 hover:opacity-80">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.2A4.8 4.8 0 1016.8 13 4.8 4.8 0 0012 8.2zm6.5-3.9a1.2 1.2 0 11-1.2 1.2 1.2 1.2 0 011.2-1.2z"/></svg>
+              </a>
+              <a href={t.social_twitter} target="_blank" rel="noreferrer" aria-label="Twitter" className="text-blue-500 hover:opacity-80">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.92c-.63.28-1.3.47-2 .55a3.48 3.48 0 001.53-1.92 6.92 6.92 0 01-2.2.83A3.46 3.46 0 0016.1 4c-1.92 0-3.48 1.57-3.48 3.5 0 .27.03.54.09.8A9.83 9.83 0 013 5.15a3.5 3.5 0 001.08 4.66 3.44 3.44 0 01-1.57-.43v.04c0 1.7 1.2 3.12 2.8 3.44-.29.08-.6.12-.92.12-.22 0-.42-.02-.62-.06.42 1.3 1.62 2.25 3.05 2.28A6.95 6.95 0 012 19.54a9.8 9.8 0 005.3 1.55c6.36 0 9.85-5.27 9.85-9.84v-.45A6.98 6.98 0 0022 5.92z"/></svg>
+              </a>
+              <a href={t.social_linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-sky-600 hover:opacity-80">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11.02 0zM3 8.98h4v12H3zM9 8.98h3.84v1.65h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.09v6.32h-4v-5.6c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.69H9z"/></svg>
+              </a>
             </div>
 
             <div className="flex items-center gap-3 justify-end">
-              {/* WhatsApp chat button */}
               <WhatsAppButton number={t.whatsappNumber} text={t.whatsappText} lang={lang} />
-              {/* Call button */}
-              <a href={`tel:${t.phoneNumber}`} className="inline-flex items-center px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">
-                {lang === 'ar' ? 'اتصال' : 'Call'}: {t.phoneNumber}
-              </a>
             </div>
           </div>
+
+          <div className="mt-3 text-xs text-gray-500 dark:text-gray-400 text-center md:text-right">© {new Date().getFullYear()} {t.instituteName}. All rights reserved.</div>
         </div>
       </div>
     </div>
