@@ -135,13 +135,13 @@ const StudentRegistration = () => {
       <div className="max-w-3xl w-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 shadow-md ring-1 ring-gray-100 dark:ring-gray-700 rounded-xl overflow-hidden">
         {/* Card header: organization name and logo */}
         <div className="border-b dark:border-gray-700">
-          <div className="p-4 flex items-center gap-4 bg-[#2563EB] dark:bg-[#0B2545]">
-            <div className="w-12 h-12 rounded-md overflow-hidden flex items-center justify-center bg-[#071123] dark:bg-[#071123]">
+          <div className="p-4 flex items-center gap-4 bg-[#0A1C1C] dark:bg-[#0A1C1C]">
+            <div className="w-12 h-12 rounded-md overflow-hidden flex items-center justify-center">
               <img src="/logo.png" alt="logo" className="w-10 h-10 object-contain" />
             </div>
             <div className="flex flex-col">
-              <div className="text-sm text-[#071123] dark:text-white font-semibold">{t.instituteName}</div>
-              <div className="text-lg font-bold text-[#071123] dark:text-white">{t.title}</div>
+              <div className="text-sm text-white font-semibold">{t.instituteName}</div>
+              <div className="text-lg font-bold text-white">{t.title}</div>
             </div>
           </div>
 
@@ -151,7 +151,7 @@ const StudentRegistration = () => {
               <button
                 type="button"
                 onClick={() => setLang('ar')}
-                className={`px-3 py-1 rounded-md text-sm transition-colors ${lang === 'ar' ? 'bg-[#071123] text-white font-medium' : 'text-gray-600 dark:text-gray-300'}`}
+                className={`px-3 py-1 rounded-md text-sm transition-colors ${lang === 'ar' ? (theme === 'dark' ? 'bg-[#E1F2F3] text-[#0A1C1C] font-medium' : 'bg-[#83D0D2] text-[#0A1C1C] font-medium') : 'text-gray-600 dark:text-gray-300'}`}
                 aria-pressed={lang === 'ar'}
                 aria-label="العربية"
               >
@@ -160,7 +160,7 @@ const StudentRegistration = () => {
               <button
                 type="button"
                 onClick={() => setLang('en')}
-                className={`px-3 py-1 rounded-md text-sm transition-colors ${lang === 'en' ? 'bg-[#071123] text-white font-medium' : 'text-gray-600 dark:text-gray-300'}`}
+                className={`px-3 py-1 rounded-md text-sm transition-colors ${lang === 'en' ? (theme === 'dark' ? 'bg-[#E1F2F3] text-[#0A1C1C] font-medium' : 'bg-[#83D0D2] text-[#0A1C1C] font-medium') : 'text-gray-600 dark:text-gray-300'}`}
                 aria-pressed={lang === 'en'}
                 aria-label="English"
               >
@@ -231,7 +231,7 @@ const StudentRegistration = () => {
                         role="tab"
                         aria-selected={status === (lang === 'ar' ? 'طالب' : 'Student')}
                         onClick={() => setStatus(lang === 'ar' ? 'طالب' : 'Student')}
-                        className={`px-3 py-1 text-sm rounded-md transition-colors ${status === (lang === 'ar' ? 'طالب' : 'Student') ? 'bg-[#071123] text-white font-medium' : 'text-gray-700 dark:text-gray-300'}`}
+                        className={`px-3 py-1 text-sm rounded-md transition-colors ${status === (lang === 'ar' ? 'طالب' : 'Student') ? (theme === 'dark' ? 'bg-[#E1F2F3] text-[#0A1C1C] font-medium' : 'bg-[#83D0D2] text-[#0A1C1C] font-medium') : 'text-gray-700 dark:text-gray-300'}`}
                       >
                         {t.student}
                       </button>
@@ -240,7 +240,7 @@ const StudentRegistration = () => {
                         role="tab"
                         aria-selected={status === (lang === 'ar' ? 'فريلانسر' : 'Freelancer')}
                         onClick={() => setStatus(lang === 'ar' ? 'فريلانسر' : 'Freelancer')}
-                        className={`px-3 py-1 text-sm rounded-md transition-colors ${status === (lang === 'ar' ? 'فريلانسر' : 'Freelancer') ? 'bg-[#071123] text-white font-medium' : 'text-gray-700 dark:text-gray-300'}`}
+                        className={`px-3 py-1 text-sm rounded-md transition-colors ${status === (lang === 'ar' ? 'فريلانسر' : 'Freelancer') ? (theme === 'dark' ? 'bg-[#E1F2F3] text-[#0A1C1C] font-medium' : 'bg-[#83D0D2] text-[#0A1C1C] font-medium') : 'text-gray-700 dark:text-gray-300'}`}
                       >
                         {t.freelancer}
                       </button>
@@ -257,7 +257,7 @@ const StudentRegistration = () => {
                       role="tab"
                       aria-selected={preferredDays === 'sat_mon_wed'}
                       onClick={() => setPreferredDays('sat_mon_wed')}
-                      className={`w-1/2 px-3 py-2 text-sm text-center rounded-md transition-colors ${preferredDays === 'sat_mon_wed' ? 'bg-[#071123] text-white font-medium' : 'text-gray-700 dark:text-gray-300 bg-transparent'}`}
+                      className={`w-1/2 px-3 py-2 text-sm text-center rounded-md transition-colors ${preferredDays === 'sat_mon_wed' ? (theme === 'dark' ? 'bg-[#E1F2F3] text-[#0A1C1C] font-medium' : 'bg-[#83D0D2] text-[#0A1C1C] font-medium') : 'text-gray-700 dark:text-gray-300 bg-transparent'}`}
                     >
                       {t.daysA}
                     </button>
@@ -266,7 +266,7 @@ const StudentRegistration = () => {
                       role="tab"
                       aria-selected={preferredDays === 'sun_tue_thu'}
                       onClick={() => setPreferredDays('sun_tue_thu')}
-                      className={`w-1/2 px-3 py-2 text-sm text-center rounded-md transition-colors ${preferredDays === 'sun_tue_thu' ? 'bg-[#071123] text-white font-medium' : 'text-gray-700 dark:text-gray-300 bg-transparent'}`}
+                      className={`w-1/2 px-3 py-2 text-sm text-center rounded-md transition-colors ${preferredDays === 'sun_tue_thu' ? (theme === 'dark' ? 'bg-[#E1F2F3] text-[#0A1C1C] font-medium' : 'bg-[#83D0D2] text-[#0A1C1C] font-medium') : 'text-gray-700 dark:text-gray-300 bg-transparent'}`}
                     >
                       {t.daysB}
                     </button>
@@ -284,7 +284,7 @@ const StudentRegistration = () => {
                   role="tab"
                   aria-selected={preferredTime === '9-1'}
                   onClick={() => setPreferredTime('9-1')}
-                  className={`w-1/2 px-3 py-2 text-sm text-center rounded-md transition-colors ${preferredTime === '9-1' ? 'bg-[#071123] text-white font-medium' : 'text-gray-700 dark:text-gray-300 bg-transparent'}`}
+                  className={`w-1/2 px-3 py-2 text-sm text-center rounded-md transition-colors ${preferredTime === '9-1' ? (theme === 'dark' ? 'bg-[#E1F2F3] text-[#0A1C1C] font-medium' : 'bg-[#83D0D2] text-[#0A1C1C] font-medium') : 'text-gray-700 dark:text-gray-300 bg-transparent'}`}
                 >
                   <div className="leading-tight">{t.timeA}</div>
                 </button>
@@ -293,7 +293,7 @@ const StudentRegistration = () => {
                   role="tab"
                   aria-selected={preferredTime === '1-5'}
                   onClick={() => setPreferredTime('1-5')}
-                  className={`w-1/2 px-3 py-2 text-sm text-center rounded-md transition-colors ${preferredTime === '1-5' ? 'bg-[#071123] text-white font-medium' : 'text-gray-700 dark:text-gray-300 bg-transparent'}`}
+                  className={`w-1/2 px-3 py-2 text-sm text-center rounded-md transition-colors ${preferredTime === '1-5' ? (theme === 'dark' ? 'bg-[#E1F2F3] text-[#0A1C1C] font-medium' : 'bg-[#83D0D2] text-[#0A1C1C] font-medium') : 'text-gray-700 dark:text-gray-300 bg-transparent'}`}
                 >
                   <div className="leading-tight">{t.timeB}</div>
                 </button>
@@ -309,7 +309,7 @@ const StudentRegistration = () => {
                     role="tab"
                     aria-selected={photoConsent === 'yes'}
                     onClick={() => setPhotoConsent('yes')}
-                    className={`px-3 py-1 text-sm rounded-md transition-colors ${photoConsent === 'yes' ? 'bg-[#071123] text-white font-medium' : 'text-gray-700 dark:text-gray-300'}`}
+                    className={`px-3 py-1 text-sm rounded-md transition-colors ${photoConsent === 'yes' ? (theme === 'dark' ? 'bg-[#E1F2F3] text-[#0A1C1C] font-medium' : 'bg-[#83D0D2] text-[#0A1C1C] font-medium') : 'text-gray-700 dark:text-gray-300'}`}
                   >
                     {t.photoYes}
                   </button>
@@ -318,7 +318,7 @@ const StudentRegistration = () => {
                     role="tab"
                     aria-selected={photoConsent === 'no'}
                     onClick={() => setPhotoConsent('no')}
-                    className={`px-3 py-1 text-sm rounded-md transition-colors ${photoConsent === 'no' ? 'bg-[#071123] text-white font-medium' : 'text-gray-700 dark:text-gray-300'}`}
+                    className={`px-3 py-1 text-sm rounded-md transition-colors ${photoConsent === 'no' ? (theme === 'dark' ? 'bg-[#E1F2F3] text-[#0A1C1C] font-medium' : 'bg-[#83D0D2] text-[#0A1C1C] font-medium') : 'text-gray-700 dark:text-gray-300'}`}
                   >
                     {t.photoNo}
                   </button>
@@ -333,7 +333,7 @@ const StudentRegistration = () => {
               <button
                 type="submit"
                 disabled={submitting}
-                className="inline-flex items-center px-4 py-2 bg-[#2563EB] text-white font-semibold rounded-md hover:opacity-95 disabled:opacity-60"
+                className="inline-flex items-center px-4 py-2 bg-[#0A1C1C] text-white font-semibold rounded-md border border-[#0A1C1C] hover:opacity-95 disabled:opacity-60"
               >
                 {submitting ? t.sending : t.submit}
               </button>
