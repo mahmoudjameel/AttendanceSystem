@@ -333,7 +333,7 @@ const StudentRegistration = () => {
               <button
                 type="submit"
                 disabled={submitting}
-                className="inline-flex items-center px-4 py-2 bg-[#0A1C1C] text-white font-semibold rounded-md border border-[#0A1C1C] hover:opacity-95 disabled:opacity-60"
+                className={`inline-flex items-center px-4 py-2 ${theme === 'dark' ? 'bg-white text-[#0A1C1C]' : 'bg-[#0A1C1C] text-white'} font-semibold rounded-md border border-[#0A1C1C] hover:opacity-95 disabled:opacity-60`}
               >
                 {submitting ? t.sending : t.submit}
               </button>
