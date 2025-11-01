@@ -136,10 +136,9 @@ const StudentRegistration = () => {
         {/* Card header: organization name and logo */}
         <div className="border-b dark:border-gray-700">
           <div className="p-4 bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-indigo-800 dark:to-indigo-900 flex items-center gap-4">
-            <div className="w-12 h-12 bg-indigo-600 text-white rounded-md flex items-center justify-center">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L2 7v6c0 5 5 9 10 9s10-4 10-9V7l-10-5z" fill="currentColor"/>
-              </svg>
+            <div className="w-12 h-12 rounded-md overflow-hidden flex items-center justify-center bg-transparent">
+              {/* Put your logo image at public/logo.png so it loads here using an absolute path */}
+              <img src="/logo.png" alt="logo" className="w-10 h-10 object-contain" />
             </div>
             <div className="flex flex-col">
               <div className="text-sm text-gray-600 dark:text-gray-300 font-medium">{t.instituteName}</div>
@@ -147,30 +146,51 @@ const StudentRegistration = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-end p-3">
-            <label className="flex items-center gap-2 text-sm">
-              <select
-                value={lang}
-                onChange={(e) => setLang(e.target.value)}
-                className="rounded-md border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 p-1"
-              >
-                <option value="ar">العربية</option>
-                <option value="en">English</option>
-              </select>
-            </label>
-
-            <label className="flex items-center gap-2 text-sm ml-3">
-              <span className="text-xs text-gray-500 dark:text-gray-300">{theme === 'dark' ? (lang === 'ar' ? 'داكن' : 'Dark') : (lang === 'ar' ? 'فاتح' : 'Light')}</span>
+          <div className="flex items-center justify-end p-3 space-x-3 rtl:space-x-reverse">
+            {/* Language segmented control */}
+            <div className="inline-flex items-center bg-gray-100 dark:bg-gray-700 rounded-md p-1">
               <button
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="w-10 h-6 bg-gray-200 dark:bg-gray-600 rounded-full relative transition-colors"
-                aria-label="Toggle theme"
+                type="button"
+                onClick={() => setLang('ar')}
+                className={`px-3 py-1 rounded-md text-sm transition-colors ${lang === 'ar' ? 'bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-medium' : 'text-gray-600 dark:text-gray-300'}`}
+                aria-pressed={lang === 'ar'}
+                aria-label="العربية"
               >
-                <span
-                  className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white dark:bg-gray-900 rounded-full shadow transform transition-transform ${theme === 'dark' ? 'translate-x-4' : ''}`}
-                />
+                العربية
               </button>
-            </label>
+              <button
+                type="button"
+                onClick={() => setLang('en')}
+                className={`px-3 py-1 rounded-md text-sm transition-colors ${lang === 'en' ? 'bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-medium' : 'text-gray-600 dark:text-gray-300'}`}
+                aria-pressed={lang === 'en'}
+                aria-label="English"
+              >
+                English
+              </button>
+            </div>
+
+            {/* Theme toggle with icons */}
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="flex items-center bg-gray-200 dark:bg-gray-600 rounded-full p-1 focus:outline-none"
+                aria-label={theme === 'dark' ? (lang === 'ar' ? 'تبديل إلى الوضع الفاتح' : 'Switch to light mode') : (lang === 'ar' ? 'تبديل إلى الوضع الداكن' : 'Switch to dark mode')}
+              >
+                <span className={`w-9 h-5 relative rounded-full transition-colors ${theme === 'dark' ? 'bg-gray-700' : 'bg-white'}`}>
+                  <span className={`absolute top-0.5 left-0.5 w-4 h-4 bg-white dark:bg-gray-900 rounded-full shadow transform transition-transform ${theme === 'dark' ? 'translate-x-4' : ''}`}>
+                    {/* Icon inside the knob */}
+                    <svg className={`w-3 h-3 m-[3px] ${theme === 'dark' ? 'text-yellow-400' : 'text-yellow-500'}`} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      {theme === 'dark' ? (
+                        <path d="M21.64 13a1 1 0 00-1.06-1.38 8 8 0 11-9.9-9.9A1 1 0 009 3.36 10 10 0 1021.64 13z" />
+                      ) : (
+                        <path d="M6.76 4.84l-1.8-1.79L4 4l1.79 1.79 0.97-0.95zM1 13h3v-2H1v2zm10 9h2v-3h-2v3zM17.66 6.34l1.8-1.79L20 4l-1.79 1.79-0.55-0.45zM20 11v2h3v-2h-3zM4 20l1.79-1.79 0.97 0.95L4.84 20H4zM12 6a6 6 0 100 12A6 6 0 0012 6z" />
+                      )}
+                    </svg>
+                  </span>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -292,9 +312,6 @@ const StudentRegistration = () => {
               <a href={t.social_instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="text-pink-600 hover:opacity-80">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.2A4.8 4.8 0 1016.8 13 4.8 4.8 0 0012 8.2zm6.5-3.9a1.2 1.2 0 11-1.2 1.2 1.2 1.2 0 011.2-1.2z"/></svg>
               </a>
-              <a href={t.social_twitter} target="_blank" rel="noreferrer" aria-label="Twitter" className="text-blue-500 hover:opacity-80">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.92c-.63.28-1.3.47-2 .55a3.48 3.48 0 001.53-1.92 6.92 6.92 0 01-2.2.83A3.46 3.46 0 0016.1 4c-1.92 0-3.48 1.57-3.48 3.5 0 .27.03.54.09.8A9.83 9.83 0 013 5.15a3.5 3.5 0 001.08 4.66 3.44 3.44 0 01-1.57-.43v.04c0 1.7 1.2 3.12 2.8 3.44-.29.08-.6.12-.92.12-.22 0-.42-.02-.62-.06.42 1.3 1.62 2.25 3.05 2.28A6.95 6.95 0 012 19.54a9.8 9.8 0 005.3 1.55c6.36 0 9.85-5.27 9.85-9.84v-.45A6.98 6.98 0 0022 5.92z"/></svg>
-              </a>
               <a href={t.social_linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-sky-600 hover:opacity-80">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11.02 0zM3 8.98h4v12H3zM9 8.98h3.84v1.65h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.09v6.32h-4v-5.6c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.69H9z"/></svg>
               </a>
@@ -305,7 +322,7 @@ const StudentRegistration = () => {
             </div>
           </div>
 
-          <div className="mt-3 text-xs text-gray-500 dark:text-gray-400 text-center md:text-right">© {new Date().getFullYear()} {t.instituteName}. All rights reserved.</div>
+          <div className="mt-3 text-xs text-gray-500 dark:text-gray-400 text-center md:text-right">© {new Date().getFullYear()} Jreas Hub. All rights reserved.</div>
         </div>
       </div>
     </div>
