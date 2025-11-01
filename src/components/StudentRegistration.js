@@ -322,7 +322,7 @@ const StudentRegistration = () => {
             </div>
           </div>
 
-          <div className="mt-3 text-xs text-gray-500 dark:text-gray-400 text-center md:text-right">© {new Date().getFullYear()} Jreas Hub. All rights reserved.</div>
+          <div className="mt-3 text-xs text-gray-500 dark:text-gray-400 text-center md:text-right">{(t.copyright || `© {year} Jreas Hub. All rights reserved.`).replace('{year}', new Date().getFullYear())}</div>
         </div>
       </div>
     </div>
